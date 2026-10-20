@@ -10,6 +10,7 @@ var tabLabels = {
   blog:  'Latest Posts',
   about: 'About Me',
   art:   'Art Gallery',
+  videos: 'Videos',
   diary: 'Diary',
   music: 'Music',
   links: 'Links'
