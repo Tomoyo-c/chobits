@@ -309,3 +309,137 @@ if (document.readyState === "loading") {
 } else {
   initLocalMusicPlayer();
 }
+
+/* ══ Guestbook Database ══ */
+(function () {
+  const SUPABASE_URL = "https://rkubeolqhvztdfpfthok.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_u7bDaUIwUojCI80h7Mtw2w_LG1_l7hf";
+
+  function initGuestbook() {
+    const form = document.getElementById("guestbook-form");
+    const list = document.getElementById("guestbook-messages");
+    const status = document.getElementById("guestbook-status");
+    const submit = document.getElementById("guestbook-submit");
+
+    if (!form || !list || !status || !submit) return;
+
+    if (!window.supabase || SUPABASE_URL.startsWith("填写你的")) {
+      status.textContent = "Guestbook is not configured yet.";
+      list.textContent = "Please configure the database connection.";
+      return;
+    }
+
+    const db = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
+    function setStatus(message) {
+      status.textContent = message;
+    }
+
+    function formatDate(value) {
+      return new Date(value).toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+      });
+    }
+
+    async function loadMessages() {
+      list.replaceChildren();
+      list.textContent = "Loading messages...";
+
+      const { data, error } = await db
+        .from("guestbook")
+        .select("id, nickname, message, created_at")
+        .order("created_at", { ascending: false })
+        .limit(50);
+
+      if (error) {
+        list.textContent = "Could not load messages. Please try again later.";
+        console.error("Guestbook load error:", error);
+        return;
+      }
+
+      list.replaceChildren();
+
+      if (!data || data.length === 0) {
+        list.textContent = "No messages yet. Be the first to leave one ♪";
+        return;
+      }
+
+      data.forEach(function (item) {
+        const entry = document.createElement("article");
+        entry.className = "guestbook-entry";
+
+        const head = document.createElement("div");
+        head.className = "guestbook-entry-head";
+
+        const name = document.createElement("span");
+        name.className = "guestbook-entry-name";
+        name.textContent = item.nickname;
+
+        const date = document.createElement("time");
+        date.className = "guestbook-entry-date";
+        date.textContent = formatDate(item.created_at);
+        date.dateTime = item.created_at;
+
+        const message = document.createElement("div");
+        message.className = "guestbook-entry-message";
+        message.textContent = item.message;
+
+        head.append(name, date);
+        entry.append(head, message);
+        list.appendChild(entry);
+      });
+    }
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      // 简单的隐藏字段反垃圾检查
+      if (form.elements.website.value.trim()) return;
+
+      const nickname = form.elements.nickname.value.trim();
+      const message = form.elements.message.value.trim();
+
+      if (!nickname || nickname.length > 30) {
+        setStatus("Nickname must be 1–30 characters.");
+        return;
+      }
+
+      if (!message || message.length > 500) {
+        setStatus("Message must be 1–500 characters.");
+        return;
+      }
+
+      submit.disabled = true;
+      setStatus("Sending your message...");
+
+      try {
+        const { error } = await db
+          .from("guestbook")
+          .insert({ nickname, message });
+
+        if (error) throw error;
+
+        form.reset();
+        setStatus("Submitted! Your message will appear after review.");
+      } catch (error) {
+        console.error("Guestbook submit error:", error);
+        setStatus("Could not submit. Please try again later.");
+      } finally {
+        submit.disabled = false;
+      }
+    });
+
+    loadMessages();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initGuestbook);
+  } else {
+    initGuestbook();
+  }
+})();

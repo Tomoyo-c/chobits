@@ -697,3 +697,273 @@ footer::before { content:'';position:absolute;top:0;left:0;right:0;height:50%;ba
     padding: 17px 15px;
   }
 }
+
+/* 手机端导航栏：允许横向滑动 */
+@media (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav .nav-tab {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}
+
+/* ══ Guestbook ══ */
+.guestbook-intro {
+  color: #64889e;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.guestbook-form label {
+  color: #4d809e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.guestbook-form input,
+.guestbook-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(130, 200, 230, 0.5);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.52);
+  color: #28536f;
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.guestbook-form input:focus,
+.guestbook-form textarea:focus {
+  border-color: #75c9e9;
+  box-shadow: 0 0 0 3px rgba(117, 201, 233, 0.16);
+}
+
+.guestbook-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.guestbook-form button {
+  align-self: flex-start;
+  max-width: 100%;
+  padding: 11px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #b8edfa, #91d8f5);
+  color: #28536f;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(70, 160, 205, 0.15);
+}
+
+.guestbook-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+#guestbook-status {
+  min-height: 18px;
+  color: #5485a1;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.guestbook-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.guestbook-list-heading {
+  margin-top: 26px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(120, 190, 220, 0.3);
+  color: #5485a1;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.guestbook-entry {
+  margin-bottom: 12px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.38);
+  overflow-wrap: anywhere;
+}
+
+.guestbook-entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 12px;
+  margin-bottom: 8px;
+}
+
+.guestbook-entry-name {
+  color: #347fa5;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.guestbook-entry-date {
+  color: #7d9eaf;
+  font-size: 10px;
+}
+
+.guestbook-entry-message {
+  color: #456c82;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 600px) {
+  .guestbook-form button {
+    align-self: stretch;
+    width: 100%;
+  }
+}
+
+/* ══ Y2K Floating Stickers ══ */
+
+.floating-stickers {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-sticker {
+  position: absolute;
+  display: block;
+  width: 64px;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 3px 5px rgba(65, 120, 160, 0.16));
+  animation: sticker-float 4s ease-in-out infinite;
+}
+
+/* 左上角：星星 */
+.sticker-star {
+  top: 15%;
+  left: 3%;
+  width: 58px;
+  animation-delay: -1s;
+}
+
+/* 右上角：蝴蝶 */
+.sticker-butterfly {
+  top: 23%;
+  right: 4%;
+  width: 76px;
+  animation-delay: -2.5s;
+}
+
+/* 左下角：像素猫 */
+.sticker-cat {
+  bottom: 12%;
+  left: 4%;
+  width: 72px;
+  animation-delay: -0.8s;
+}
+
+/* 右下角：爱心 */
+.sticker-heart {
+  bottom: 18%;
+  right: 3%;
+  width: 52px;
+  animation-delay: -3s;
+}
+
+/* 轻柔的上下漂浮 */
+@keyframes sticker-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+}
+
+/* 手机端：缩小贴纸，避免遮挡内容 */
+@media (max-width: 600px) {
+  .floating-sticker {
+    opacity: 0.78;
+  }
+
+  .sticker-star {
+    top: 13%;
+    left: 1%;
+    width: 36px;
+  }
+
+  .sticker-butterfly {
+    top: 20%;
+    right: 1%;
+    width: 44px;
+  }
+
+  .sticker-cat {
+    bottom: 8%;
+    left: 1%;
+    width: 44px;
+  }
+
+  .sticker-heart {
+    bottom: 13%;
+    right: 1%;
+    width: 32px;
+  }
+}
+
+/* 尊重系统的减少动态效果设置 */
+@media (prefers-reduced-motion: reduce) {
+  .floating-sticker {
+    animation: none;
+  }
+}
+/* ══ Pinned Post Tag ══ */
+.pt-pinned {
+  color: #426d91;
+  background: linear-gradient(
+    135deg,
+    rgba(220, 243, 255, 0.95),
+    rgba(192, 215, 242, 0.9)
+  );
+  border: 1px solid rgba(135, 181, 218, 0.7);
+  box-shadow: 0 2px 8px rgba(100, 160, 205, 0.18);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
