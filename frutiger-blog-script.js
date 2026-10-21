@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initImageFallbacks();
   initLightbox();
   // Frutiger Aero blog player IDs
-  initSCPlayer('sc-player-fa', 'mp-disc-fa', 'mp-bars-fa', 'mp-btn-fa', 'mp-track-fa');
+  // initSCPlayer('sc-player-fa', 'mp-disc-fa', 'mp-bars-fa', 'mp-btn-fa', 'mp-track-fa');
 });
 
 /* -------------------------------------------------------
@@ -128,4 +128,184 @@ function initLightbox() {
       if (img.src && img.naturalWidth > 0) openLightbox(img.src);
     });
   });
+}
+
+
+
+/* ══ Local Music Player ══ */
+function initLocalMusicPlayer() {
+  const audio = document.getElementById("local-audio-fa");
+  const disc = document.getElementById("mp-disc-fa");
+  const prevBtn = document.getElementById("music-prev");
+  const nextBtn = document.getElementById("music-next");
+  const title = document.getElementById("mp-track-fa");
+  const status = document.getElementById("music-status");
+  const bars = document.getElementById("mp-bars-fa");
+  const list = document.getElementById("music-track-list");
+
+  // 如果播放器 HTML 元素缺失，在控制台显示原因
+  if (!audio || !disc || !title || !list) {
+    console.error("音乐播放器初始化失败，请检查 HTML 元素 ID：", {
+      audio: !!audio,
+      disc: !!disc,
+      title: !!title,
+      list: !!list
+    });
+    return;
+  }
+
+  const tracks = [
+    {
+      title: "7 Weeks 3 Days",
+      artist: "Backrooms Version",
+      src: "music/7 Weeks 3 Days.mp3"
+    },
+    {
+      title: "Comfort Chain",
+      artist: "Instupendo",
+      src: "music/Comfort Chain.mp3"
+    },
+    {
+      title: "I'd Rather Sleep",
+      artist: "Kero Kero Bonito",
+      src: "music/I'd Rather Sleep - Kero Kero Bonito.mp3"
+    }
+  ];
+
+  let currentIndex = 0;
+
+  function updateStatus(text) {
+    if (status) status.textContent = text;
+  }
+
+  function updatePlayState(playing) {
+    disc.classList.toggle("is-playing", playing);
+
+    if (bars) {
+      bars.style.opacity = playing ? "1" : "0.35";
+    }
+
+    if (playing) {
+      updateStatus("PLAYING");
+    } else if (audio.ended) {
+      updateStatus("FINISHED");
+    } else {
+      updateStatus("PAUSED");
+    }
+  }
+
+  function renderPlaylist() {
+    list.replaceChildren();
+
+    tracks.forEach(function (track, index) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "music-track-item";
+      button.classList.toggle("active", index === currentIndex);
+      button.setAttribute(
+        "aria-current",
+        index === currentIndex ? "true" : "false"
+      );
+
+      const number = document.createElement("span");
+      number.className = "music-track-number";
+      number.textContent = String(index + 1).padStart(2, "0");
+
+      const name = document.createElement("span");
+      name.className = "music-track-name";
+      name.textContent = track.title + " — " + track.artist;
+
+      button.append(number, name);
+
+      button.addEventListener("click", function () {
+        loadTrack(index, true);
+      });
+
+      list.appendChild(button);
+    });
+  }
+
+  function loadTrack(index, autoplay) {
+    currentIndex = (index + tracks.length) % tracks.length;
+    const track = tracks[currentIndex];
+
+    audio.pause();
+    audio.src = track.src;
+    audio.load();
+
+    title.textContent = "♪ " + track.title + " — " + track.artist;
+
+    renderPlaylist();
+    updateStatus("READY");
+    updatePlayState(false);
+
+    if (autoplay) {
+      playAudio();
+    }
+  }
+
+  function playAudio() {
+    audio.play().catch(function (error) {
+      console.error("音乐播放失败：", error);
+      updateStatus("PLAY ERROR");
+    });
+  }
+
+  // 唱片：播放 / 暂停
+  disc.addEventListener("click", function () {
+    if (audio.paused) {
+      playAudio();
+    } else {
+      audio.pause();
+    }
+  });
+
+  // 上一首
+  if (prevBtn) {
+    prevBtn.addEventListener("click", function () {
+      loadTrack(currentIndex - 1, true);
+    });
+  }
+
+  // 下一首
+  if (nextBtn) {
+    nextBtn.addEventListener("click", function () {
+      loadTrack(currentIndex + 1, true);
+    });
+  }
+
+  audio.addEventListener("play", function () {
+    updatePlayState(true);
+  });
+
+  audio.addEventListener("pause", function () {
+    updatePlayState(false);
+  });
+
+  audio.addEventListener("ended", function () {
+    if (currentIndex < tracks.length - 1) {
+      loadTrack(currentIndex + 1, true);
+    } else {
+      updatePlayState(false);
+      updateStatus("FINISHED");
+    }
+  });
+
+  audio.addEventListener("error", function () {
+    updateStatus("FILE ERROR");
+    console.error("音乐文件无法加载：", audio.currentSrc);
+  });
+
+  // 先生成歌单，再加载第一首歌曲
+  renderPlaylist();
+  loadTrack(0, false);
+
+  console.log("本地音乐播放器初始化完成，歌曲数量：", tracks.length);
+}
+
+// 等 HTML 加载完成后再初始化
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initLocalMusicPlayer);
+} else {
+  initLocalMusicPlayer();
 }
