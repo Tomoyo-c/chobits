@@ -966,4 +966,378 @@ footer::before { content:'';position:absolute;top:0;left:0;right:0;height:50%;ba
   border: 1px solid rgba(135, 181, 218, 0.7);
   box-shadow: 0 2px 8px rgba(100, 160, 205, 0.18);
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}/* ══ Sticker inside a specific card ══ */
+
+/* 让目标卡片成为贴纸的定位参照 */
+.glass.post {
+  position: relative;
+}
+
+/* 卡片内部的 GIF 贴纸 */
+.card-sticker {
+  position: absolute;
+  top: 35px;
+  right: 5px;
+
+  width: 80px;
+  height: auto;
+
+  z-index: 10;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Hide diary thumbnail */
+.diary-thumb.dt-aqua {
+  display: none !important;
+}/* ══ Diary Author ══ */
+
+.diary-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.diary-avatar {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 10px rgba(100, 160, 205, 0.2);
+}
+
+.diary-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.diary-nickname {
+  font-size: 15px;
+  font-weight: 700;
+  color: inherit;
+}
+
+.diary-time {
+  font-size: 11px;
+  color: #7f98aa;
+  letter-spacing: 0.3px;
+}
+
+.diary-content {
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+/* ══ Friends Form — Guestbook matching style ══ */
+
+#tab-friends .friend-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 16px;
+}
+
+#tab-friends .friend-form label {
+  display: block;
+  margin: 0;
+  color: #4d809e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+#tab-friends .friend-form input,
+#tab-friends .friend-form textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(130, 200, 230, 0.5);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.52);
+  color: #28536f;
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+#tab-friends .friend-form input:focus,
+#tab-friends .friend-form textarea:focus {
+  border-color: #75c9e9;
+  box-shadow: 0 0 0 3px rgba(117, 201, 233, 0.16);
+}
+
+#tab-friends .friend-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+#tab-friends .friend-form button {
+  align-self: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 11px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #b8edfa, #91d8f5);
+  color: #28536f;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(70, 160, 205, 0.15);
+}
+
+#tab-friends .friend-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+#tab-friends #friend-status {
+  min-height: 18px;
+  margin: 0;
+  color: #5485a1;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+#tab-friends .friends-list-heading {
+  margin-top: 26px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(120, 190, 220, 0.3);
+  color: #5485a1;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+#tab-friends #friends-list {
+  margin-top: 14px;
+}
+
+@media (max-width: 600px) {
+  #tab-friends .friend-form button {
+    align-self: stretch;
+    width: 100%;
+  }
+}
+
+/* ══ Friends List: 2 columns × 4 rows ══ */
+
+#tab-friends #friends-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+/* Friend card */
+#tab-friends .friend-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(70, 160, 205, 0.08);
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#tab-friends .friend-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+/* Avatar */
+#tab-friends .friend-avatar {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: rgba(145, 216, 245, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Name and description */
+#tab-friends .friend-info {
+  flex: 1;
+  min-width: 0;
+}
+
+#tab-friends .friend-name {
+  margin: 0 0 6px;
+  color: #347fa5;
+  font-size: 13px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+#tab-friends .friend-description {
+  margin: 0;
+  color: #64889e;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+/* Pagination */
+#tab-friends .friends-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+#tab-friends .friends-page-btn {
+  min-width: 36px;
+  padding: 8px 12px;
+  border: 1px solid rgba(130, 200, 230, 0.5);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.48);
+  color: #5485a1;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#tab-friends .friends-page-btn:hover,
+#tab-friends .friends-page-btn.active {
+  background: linear-gradient(135deg, #b8edfa, #91d8f5);
+  color: #28536f;
+}
+
+#tab-friends .friends-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#tab-friends .friends-empty {
+  grid-column: 1 / -1;
+  padding: 24px 12px;
+  color: #64889e;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* Mobile: keep two columns, reduce card size */
+@media (max-width: 600px) {
+  #tab-friends #friends-list {
+    gap: 8px;
+  }
+
+  #tab-friends .friend-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  #tab-friends .friend-avatar {
+    flex-basis: auto;
+    width: 48px;
+    height: 48px;
+  }
+
+  #tab-friends .friend-name {
+    font-size: 12px;
+  }
+
+  #tab-friends .friend-description {
+    font-size: 11px;
+  }
+}
+
+/* ══ Diary Images ══ */
+
+#tab-diary .diary-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 16px 0;
+  border-radius: 14px;
+  object-fit: contain;
+  box-sizing: border-box;
+}
+
+/* Optional: image with a soft glass-like frame */
+#tab-diary .diary-image-frame {
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 14px rgba(70, 160, 205, 0.1);
+}
+
+/* ══ Diary Image Lightbox ══ */
+
+#diary-lightbox.diary-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px 20px;
+  box-sizing: border-box;
+  background: rgba(15, 30, 45, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: zoom-out;
+}
+
+#diary-lightbox.diary-lightbox.active {
+  display: flex;
+}
+
+#diary-lightbox #diary-lightbox-image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  cursor: default;
+}
+
+#diary-lightbox .diary-lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#diary-lightbox .diary-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
 }

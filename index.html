@@ -54,14 +54,16 @@
     </div>
 
     <nav>
-      <a href="#" class="nav-tab active" data-tab="blog"  onclick="switchTab('blog',this);  return false;">🏠 home</a>
-      <a href="#" class="nav-tab"        data-tab="about" onclick="switchTab('about',this); return false;">👤 about</a>
-      <a href="#" class="nav-tab"        data-tab="art"   onclick="switchTab('art',this);   return false;">🎨 art</a>
-      <a href="#" class="nav-tab"        data-tab="videos" onclick="switchTab('videos',this); return false;">🎬 videos</a>
-      <a href="#" class="nav-tab"        data-tab="diary" onclick="switchTab('diary',this); return false;">📝 diary</a>
-      <a href="#" class="nav-tab"        data-tab="music" onclick="switchTab('music',this); return false;">🎵 music</a>
-      <a href="#" class="nav-tab"        data-tab="links" onclick="switchTab('links',this); return false;">🔗 links</a>
-      <a href="#" class="nav-tab" data-tab="guestbook"onclick="switchTab('guestbook',this); return false;">✍🏻guestbook
+      <a href="#" class="nav-tab active" data-tab="blog"  onclick="switchTab('blog',this);  return false;">🏠 Home</a>
+      <a href="#" class="nav-tab"        data-tab="about" onclick="switchTab('about',this); return false;">👤 About</a>
+      <a href="#" class="nav-tab"        data-tab="art"   onclick="switchTab('art',this);   return false;">🎨 Art</a>
+      <a href="#" class="nav-tab"        data-tab="videos" onclick="switchTab('videos',this); return false;">🎬 Videos</a>
+      <a href="#" class="nav-tab"        data-tab="diary" onclick="switchTab('diary',this); return false;">📝 Diary</a>
+      <a href="#" class="nav-tab"        data-tab="music" onclick="switchTab('music',this); return false;">🎵 Music</a>
+      <a href="#" class="nav-tab"        data-tab="links" onclick="switchTab('links',this); return false;">🔗 Links</a>
+      <a href="#" class="nav-tab" data-tab="guestbook"onclick="switchTab('guestbook',this); return false;">✍🏻Guestbook</a>
+      <a href="#" class="nav-tab" data-tab="friends"onclick="switchTab('friends',this);     return false;">🧑‍🤝‍🧑Friends</a>
+</a>
 </a>
     </nav>
   </header>
@@ -90,8 +92,7 @@
           </div>
           <div class="post-inner">
             <div class="post-meta">
-              <span class="post-date">2023.06.24</span>
-              <span class="post-tag pt-pinned">🔝 PINNED</span>
+            <span class="post-tag pt-pinned">🔝 PINNED</span>
             </div>
             <!-- ★ Change src to your post image -->
             <div class="post-thumb thumb-1">
@@ -155,12 +156,11 @@
   <div class="glass-header">
     <div class="gh-icon aqua"></div>
     <span class="gh-title">🌐 My Favorite Websites</span>
-    <span class="gh-count">PINNED ✧</span>
+    <span class="gh-count">Aug 12, 2024</span>
   </div>
 
   <div class="post-inner">
     <div class="post-meta">
-      <span class="post-date">2026.10.21</span>
       <span class="post-tag pt-pinned">🔗Web</span>
     </div>
 
@@ -472,46 +472,142 @@
 
       
 
-      <!-- ══ TAB: DIARY ══ -->
-      <div class="tab-pane" id="tab-diary">
+<!-- ══ TAB: DIARY ══ -->
+ 
+<div class="tab-pane" id="tab-diary">
+ <!-- ══ Diary Entry ══ -->
+<div class="glass post">
+  <div class="glass-header">
+    <div class="gh-icon aqua"></div>
+    <span class="gh-title">📝Diary</span>
+  </div>
 
-        <div class="glass post">
-          <div class="glass-header">
-            <div class="gh-icon blue"></div>
-            <span class="gh-title">🌸 Diary Entry</span>
-            <span class="gh-count">Oct 20, 2026</span>
-          </div>
-          <div class="diary-post">
-            <div class="diary-date"><span class="post-date">2026.10.20</span><span class="post-tag pt-life">🌸 DIARY</span></div>
-            <div class="diary-title"><a href="#">我很冷</a></div>
-            <div class="diary-thumb dt-pink">
-              <img class="icon-img" src="Imsocold.jpg" alt="diary" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-              <span class="icon-fallback">🌸</span>
-            </div>
-            <div class="diary-excerpt">最近气温已经零下了，真的好冷，我需要一双棉拖鞋🥶</div>
-            <a href="#" class="aero-btn btn-blue">read more ▶</a>
-          </div>
-        </div>
+  <div class="diary-post">
 
-        <div class="glass post">
-          <div class="glass-header">
-            <div class="gh-icon aqua"></div>
-            <span class="gh-title">🌸 Diary Entry</span>
-            <span class="gh-count">Oct 21, 2024</span>
-          </div>
-          <div class="diary-post">
-            <div class="diary-date"><span class="post-date">2024.10.21</span><span class="post-tag pt-life">🌸 DIARY</span></div>
-            <div class="diary-title"><a href="#">早餐让生活更美好☀️</a></div>
-            <div class="diary-thumb dt-aqua">
-              <img class="icon-img" src="sandwich.jpg" alt="diary" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-              <span class="icon-fallback">☀️</span>
-            </div> 
-            <div class="diary-excerpt">纯手工制作哦，富含人体必备营养，已经能够熟练煎鸡蛋了🍳</div>
-            <a href="#" class="aero-btn btn-aqua">read more ▶</a>
-          </div>
-        </div>
+    <!-- Diary Author -->
+    <div class="diary-author">
+      <img
+        src="Musicislife.jpg"
+        class="diary-avatar"
+        alt="Zeon avatar"
+      >
 
+      <div class="diary-author-info">
+        <div class="diary-nickname">Zeon</div>
+
+        <time class="diary-time" data-auto-time>
+          自动生成时间
+        </time>
       </div>
+    </div>
+
+    <!-- Diary Content -->
+    <div class="diary-content">
+      <p>好累啊，修改了一天的博客...结果还是有很多bug，但我新增了友链功能，还创建了个人图床~</p>
+      <!-- ══ Diary Images ══ -->
+
+      <!-- Image 1: 自定义大小与位置 -->
+      <img
+        src=""
+        alt=""
+        class="diary-image"style="width: 25%; cursor: zoom-in; margin-left: 450px;margin-top: -80px; margin-bottom: 20px;"
+       onclick="openDiaryImage(this)"
+      >
+</div><div class="diary-thumb dt-aqua"></div>
+</div>
+</div>
+<!-- ══ End Diary Entry ══ --> 
+
+  
+<!-- ══ Diary Entry ══ -->
+<div class="glass post">
+  <div class="glass-header">
+    <div class="gh-icon aqua"></div>
+    <span class="gh-title">📝Diary</span>
+  </div>
+
+  <div class="diary-post">
+
+    <!-- Diary Author -->
+    <div class="diary-author">
+      <img
+        src="Musicislife.jpg"
+        class="diary-avatar"
+        alt="Zeon avatar"
+      >
+
+      <div class="diary-author-info">
+        <div class="diary-nickname">Zeon</div>
+
+       <time class="diary-time" datetime="2026-10-20 19:45">
+            2026.10.20 19:15
+      </div>
+    </div>
+
+    <!-- Diary Content -->
+    <div class="diary-content">
+      <p>最近气温已经零下了，真的好冷，我需要一双棉拖鞋🥶</p>
+      <!-- ══ Diary Images ══ -->
+
+      <!-- Image 1: 自定义大小与位置 -->
+      <img
+        src="https://zeon-oxo.com/Imsocold.jpg"
+        alt="随手拍"
+        class="diary-image"style="width: 25%; cursor: zoom-in; margin-left: 450px;margin-top: -80px; margin-bottom: 20px;"
+       onclick="openDiaryImage(this)"
+      >
+</div><div class="diary-thumb dt-aqua"></div>
+</div>
+</div>
+<!-- ══ End Diary Entry ══ -->
+
+  <div class="glass post">
+    <div class="glass-header">
+      <div class="gh-icon aqua"></div><span class="gh-title">📝Diary</span>
+    </div>
+
+    <div class="diary-post">
+
+      <!-- Diary Author -->
+       <div class="diary-author">
+       
+        <img
+          src="Musicislife.jpg"
+          class="diary-avatar"
+          alt="Zeon avatar"
+        >
+
+        <div class="diary-author-info">
+          <div class="diary-nickname">Zeon</div>
+
+          <time class="diary-time" datetime="2024-10-21T07:45">
+            2024.10.21 07:45
+          </time>
+        </div></div>
+      <div class="diary-content">
+        早餐让生活更美好☀️(这是我穿越回过去写下的日记)
+ <img
+  src="sandwich.jpg"
+  alt="随手拍"
+  class="diary-image"
+  style="width: 25%; cursor: zoom-in; margin-left: 450px;margin-top: -80px; margin-bottom: 20px;"
+  onclick="openDiaryImage(this)"
+>
+        
+        
+      </div>
+      
+
+      <div class="diary-thumb dt-aqua"></div>
+      
+
+    </div>
+  </div>
+  
+
+</div>
+
+<!-- ══ END TAB: DIARY ══ -->
 
     
 <!-- ══ TAB: MUSIC ══ -->
@@ -629,7 +725,7 @@
       </p>
 
       <form id="guestbook-form" class="guestbook-form">
-        <label for="guestbook-nickname">Your nickname</label>
+        <label for="guestbook-nickname">Your name</label>
         <input id="guestbook-nickname" name="nickname"
                type="text" maxlength="30"
                placeholder="What should I call you?" required>
@@ -664,6 +760,101 @@
 
 </div>
 <!-- End Guestbook Tab -->
+ 
+
+<!-- ══ TAB: FRIENDS ══ -->
+<div class="tab-pane" id="tab-friends">
+
+  <!-- Submit friend link -->
+  <div class="glass post">
+    <div class="glass-header">
+      <div class="gh-icon aqua"></div>
+      <span class="gh-title">🧑‍🤝‍🧑Friends & Links</span>
+    </div>
+
+    <div class="post-inner">
+      <p>no matter where you are, everyone is always connected.</p>
+
+      <form id="friend-form" class="friend-form">
+
+        <label for="friend-url">Website URL</label>
+        <input
+          id="friend-url"
+          name="site_url"
+          type="url"
+          placeholder="https://your-website.com/"
+          required
+        >
+
+        <button type="button" id="friend-preview">
+          ✧ Fetch website info
+        </button>
+
+        <label for="friend-name">Nickname / Website name</label>
+        <input
+          id="friend-name"
+          name="site_name"
+          type="text"
+          maxlength="100"
+          placeholder="Your name or website name"
+          required
+        >
+
+        <label for="friend-avatar">Avatar image URL</label>
+        <input
+          id="friend-avatar"
+          name="avatar_url"
+          type="url"
+          maxlength="2048"
+          placeholder="https://example.com/avatar.jpg"
+        >
+
+        <label for="friend-description">Signature / Description</label>
+        <textarea
+          id="friend-description"
+          name="description"
+          maxlength="500"
+          rows="3"
+          placeholder="A few words about you or your website..."
+        ></textarea>
+
+        <button type="submit" id="friend-submit">
+          ♡ Submit for review
+        </button>
+
+        <p id="friend-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Approved friend links -->
+  <div class="glass post">
+    <div class="glass-header">
+      <div class="gh-icon aqua"></div>
+      <span class="gh-title">✧ Friends around the internet ✧</span>
+    </div>
+
+    <div class="post-inner">
+      <p>Discover little worlds made by other people.</p>
+
+      <!-- Approved friends are rendered here -->
+      <div id="friends-list" aria-live="polite">
+        Loading friends...
+      </div>
+
+      <!-- Pagination -->
+      <nav id="friends-pagination"
+           class="friends-pagination"
+           aria-label="Friends list pagination">
+      </nav>
+    </div>
+  </div>
+
+</div>
+<!-- ══ END TAB: FRIENDS ══ -->
+
+
+ 
 
     </div><!-- end main-col -->
 
@@ -681,6 +872,15 @@
           <div class="sb-name">Zeon</div><!-- ★ change -->
           <div class="sb-sub">♂  · 剪辑师 · 建筑师 · 绘画爱好者</div><!-- ★ change -->
           <div class="sb-status"><div class="sb-status-dot"></div>online ♡</div>
+          <!-- 卡片原有内容保持不变 -->
+
+<img
+  src="stickers/Happy Bubble Sticker.gif"
+  class="card-sticker"
+  alt=""
+  aria-hidden="true"
+  draggable="false"
+>
           <!-- ★ Change href and src for each social icon -->
           <div class="msn-icons">
             
@@ -723,7 +923,7 @@
       <div class="glass">
         <div class="glass-header"><div class="gh-icon blue"></div><span class="gh-title">a little bit~</span></div>
         <div class="about-block">
-          <p>嗨！! 我做自媒体运营，制作我喜欢的视频。 痴迷于各种个性美学，以及21世纪初的互联网。 💙</p><!-- ★ change -->
+          <p>嗨！! 我痴迷于电脑和互联网，制作我喜欢的视频。 喜欢各种个性美学，以及轮滑运动。 💙</p><!-- ★ change -->
           <ul class="about-list">
             <li><div class="al-dot" style="background:radial-gradient(circle at 35% 30%,#90d8ff,#2890e0)"></div>🎮playing: VALORANT & IDV</li>
             <li><div class="al-dot" style="background:radial-gradient(circle at 35% 30%,#90f0e0,#28b098)"></div>📖reading: All About Lily Chou</li>
@@ -859,7 +1059,7 @@
   <img class="lightbox-img" id="lightbox-img" src="" alt="full size">
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src=""></script>
+<script src="friends.js"></script>
 
 <!-- Floating Y2K Stickers -->
 <div class="floating-stickers" aria-label="Floating decorations">
@@ -894,6 +1094,29 @@
 
 </div>
 <!-- End Floating Y2K Stickers -->
+ 
+<!-- ══ Diary Image Lightbox ══ -->
+<div
+  id="diary-lightbox"
+  class="diary-lightbox"
+  onclick="closeDiaryImage()"
+  aria-label="关闭图片预览"
+>
+  <button
+    type="button"
+    class="diary-lightbox-close"
+    onclick="event.stopPropagation(); closeDiaryImage();"
+    aria-label="关闭"
+  >×</button>
+
+  <img
+    id="diary-lightbox-image"
+    src=""
+    alt=""
+  >
+</div>
+<!-- ══ End Diary Image Lightbox ══ -->
+
   >
 
 </div>

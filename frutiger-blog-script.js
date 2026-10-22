@@ -443,3 +443,55 @@ if (document.readyState === "loading") {
     initGuestbook();
   }
 })();
+
+/* ══ Diary Auto Date & Time ══ */
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("#tab-diary time[data-auto-time]").forEach(function (time) {
+    const now = new Date();
+
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+
+    time.dateTime =
+      `${year}-${month}-${day}T${hours}:${minutes}`;
+
+    time.textContent =
+      `${year}.${month}.${day} ${hours}:${minutes}`;
+  });
+});
+
+/* ══ Diary Image Lightbox ══ */
+
+function openDiaryImage(image) {
+  const lightbox = document.getElementById("diary-lightbox");
+  const preview = document.getElementById("diary-lightbox-image");
+
+  if (!lightbox || !preview) return;
+
+  preview.src = image.src;
+  preview.alt = image.alt || "";
+
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeDiaryImage() {
+  const lightbox = document.getElementById("diary-lightbox");
+  const preview = document.getElementById("diary-lightbox-image");
+
+  if (!lightbox || !preview) return;
+
+  lightbox.classList.remove("active");
+  preview.src = "";
+  document.body.style.overflow = "";
+}
+
+/* Press ESC to close */
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeDiaryImage();
+  }
+});

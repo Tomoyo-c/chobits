@@ -1,0 +1,42 @@
+<!-- ══ Diary Entry ══ -->
+<div class="glass post">
+  <div class="glass-header">
+    <div class="gh-icon aqua"></div>
+    <span class="gh-title">📝Diary</span>
+  </div>
+
+  <div class="diary-post">
+
+    <!-- Diary Author -->
+    <div class="diary-author">
+      <img
+        src="Musicislife.jpg"
+        class="diary-avatar"
+        alt="Zeon avatar"
+      >
+
+      <div class="diary-author-info">
+        <div class="diary-nickname">Zeon</div>
+
+        <time class="diary-time" data-auto-time>
+          自动生成时间
+        </time>
+      </div>
+    </div>
+
+    <!-- Diary Content -->
+    <div class="diary-content">
+      <p>点击输入文本</p>
+      <!-- ══ Diary Images ══ -->
+
+      <!-- Image 1: 自定义大小与位置 -->
+      <img
+        src=""
+        alt=""
+        class="diary-image"style="width: 25%; cursor: zoom-in; margin-left: 450px;margin-top: -80px; margin-bottom: 20px;"
+       onclick="openDiaryImage(this)"
+      >
+
+      
+
+      <!-- ══ End Diary Images ══ -->
