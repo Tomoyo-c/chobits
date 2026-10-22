@@ -34,8 +34,10 @@
     <div class="hdr-main">
       <!-- ★ Mascot — change src, emoji is fallback -->
       <div class="hdr-mascot">
-        <img class="icon-img" src="delfin (1).png" alt="mascot"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <img class="icon-img dolphin-mascot"
+     src="delfin (1).png"
+     alt="mascot">
+         
         <span class="icon-fallback">🌊</span>
       </div>
       <div class="hdr-text">
@@ -1060,6 +1062,16 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="friends.js"></script>
+<script src="sticker-drag.js"></script>
+
+<!-- Frutiger Aero floating glass bubbles: change --bubble-x, --bubble-y, and --bubble-size to customize -->
+<div class="aero-bubble-layer" aria-hidden="true">
+  <span class="aero-bubble" style="--bubble-x: 12%; --bubble-y: 32%; --bubble-size: 46px; --bubble-speed: 13s; --bubble-delay: -3s;"></span>
+  <span class="aero-bubble" style="--bubble-x: 82%; --bubble-y: 18%; --bubble-size: 68px; --bubble-speed: 16s; --bubble-delay: -8s;"></span>
+  <span class="aero-bubble" style="--bubble-x: 90%; --bubble-y: 67%; --bubble-size: 36px; --bubble-speed: 11s; --bubble-delay: -5s;"></span>
+  <span class="aero-bubble" style="--bubble-x: 7%; --bubble-y: 78%; --bubble-size: 58px; --bubble-speed: 15s; --bubble-delay: -10s;"></span>
+  <span class="aero-bubble" style="--bubble-x: 72%; --bubble-y: 86%; --bubble-size: 28px; --bubble-speed: 10s; --bubble-delay: -2s;"></span>
+</div>
 
 <!-- Floating Y2K Stickers -->
 <div class="floating-stickers" aria-label="Floating decorations">

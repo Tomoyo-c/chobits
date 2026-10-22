@@ -1341,3 +1341,1270 @@ footer::before { content:'';position:absolute;top:0;left:0;right:0;height:50%;ba
 #diary-lightbox .diary-lightbox-close:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+
+/* ══ Frutiger Aero Background ══ */
+
+body {
+  background-color: #168fe5;
+  background-image: url("aero-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Mobile background */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-position: center center;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   Frutiger Aero Glass Refresh — Phase 1
+   Glass panels only; preserves existing layout/JS.
+   ═══════════════════════════════════════════════ */
+
+.glass {
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(255, 255, 255, 0.48) 0%, transparent 48%),
+    linear-gradient(135deg,
+      rgba(190, 232, 255, 0.52) 0%,
+      rgba(100, 190, 250, 0.34) 48%,
+      rgba(210, 247, 255, 0.42) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 16px;
+  box-shadow:
+    0 12px 32px rgba(0, 76, 160, 0.18),
+    0 3px 8px rgba(0, 100, 190, 0.10),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.88),
+    inset 0 -1px 0 rgba(120, 210, 255, 0.24);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  backdrop-filter: blur(18px) saturate(145%);
+  overflow: hidden;
+}
+
+.glass-header {
+  background:
+    linear-gradient(180deg,
+      rgba(210, 244, 255, 0.62) 0%,
+      rgba(91, 185, 247, 0.48) 48%,
+      rgba(36, 142, 225, 0.54) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    0 1px 0 rgba(65, 160, 230, 0.10);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(150%);
+}
+
+.glass-header::after {
+  height: 58%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.36) 0%,
+    rgba(255, 255, 255, 0.10) 55%,
+    transparent 100%
+  );
+}
+
+.post {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.post:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.94);
+  box-shadow:
+    0 16px 36px rgba(0, 76, 160, 0.22),
+    0 4px 10px rgba(0, 100, 190, 0.12),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.92),
+    inset 0 -1px 0 rgba(120, 210, 255, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post {
+    transition: none;
+  }
+  .post:hover {
+    transform: none;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════
+   Frutiger Aero Glass Refresh — Phase 2
+   Navigation: translucent blue crystal tabs
+   ═══════════════════════════════════════════════ */
+
+/* Main navigation glass rail */
+nav {
+  position: relative;
+  z-index: 5;
+  gap: 7px;
+  align-items: center;
+  padding: 10px 14px;
+  background:
+    linear-gradient(180deg,
+      rgba(224, 248, 255, 0.62) 0%,
+      rgba(95, 190, 248, 0.48) 42%,
+      rgba(28, 132, 220, 0.54) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    0 5px 16px rgba(0, 75, 150, 0.12);
+  -webkit-backdrop-filter: blur(18px) saturate(155%);
+  backdrop-filter: blur(18px) saturate(155%);
+}
+
+/* Individual crystal-like navigation buttons */
+nav .nav-tab {
+  position: relative;
+  isolation: isolate;
+  flex: 0 0 auto;
+  justify-content: center;
+  padding: 9px 14px;
+  min-height: 36px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.44) 0%,
+      rgba(191, 235, 255, 0.24) 42%,
+      rgba(50, 157, 235, 0.22) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    inset 0 -1px 0 rgba(70, 170, 235, 0.18),
+    0 3px 8px rgba(0, 72, 145, 0.12);
+  color: rgba(255, 255, 255, 0.98);
+  font-size: 10px;
+  text-shadow: 0 1px 3px rgba(0, 62, 130, 0.42);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+/* Soft reflective shine across each tab */
+nav .nav-tab::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 1px 1px auto;
+  height: 52%;
+  border-radius: 10px 10px 50% 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.38),
+    rgba(255, 255, 255, 0.08) 68%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+nav .nav-tab:hover:not(.active) {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.9);
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.62),
+      rgba(172, 229, 255, 0.38) 52%,
+      rgba(47, 157, 240, 0.34));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 6px 14px rgba(0, 75, 155, 0.18);
+  color: #ffffff;
+}
+
+nav .nav-tab.active {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.98);
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(216, 246, 255, 0.76) 48%,
+      rgba(121, 207, 255, 0.66) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 0 rgba(255, 255, 255, 0.32),
+    0 4px 12px rgba(0, 70, 145, 0.18),
+    0 0 0 1px rgba(90, 190, 255, 0.18);
+  color: #1268a8;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+nav .nav-tab:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+/* Keep the existing horizontally scrollable mobile navigation */
+@media (max-width: 680px) {
+  nav {
+    align-items: stretch;
+    gap: 6px;
+    padding: 8px 10px;
+  }
+
+  nav .nav-tab {
+    min-height: 42px;
+    padding: 7px 12px;
+    border-radius: 11px;
+    flex-direction: column;
+    gap: 3px;
+    line-height: 1.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  nav .nav-tab {
+    transition: none;
+  }
+  nav .nav-tab:hover:not(.active),
+  nav .nav-tab.active,
+  nav .nav-tab:active {
+    transform: none;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════
+   Frutiger Aero Glass Refresh — Phase 3
+   Header / Logo area: clear sky-blue crystal glass
+   ═══════════════════════════════════════════════ */
+
+/* Main header: let the sky background show through */
+header {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(180deg,
+      rgba(194, 239, 255, 0.40) 0%,
+      rgba(77, 183, 247, 0.34) 46%,
+      rgba(16, 129, 220, 0.42) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.70);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(100, 205, 255, 0.30),
+    0 12px 30px rgba(0, 83, 164, 0.16),
+    0 2px 8px rgba(0, 115, 210, 0.10);
+  -webkit-backdrop-filter: blur(20px) saturate(165%);
+  backdrop-filter: blur(20px) saturate(165%);
+}
+
+/* Glass sheen, like light reflecting off a curved surface */
+header::after {
+  z-index: 0;
+  height: 58%;
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.42) 0%,
+      rgba(255, 255, 255, 0.14) 38%,
+      rgba(255, 255, 255, 0.00) 100%);
+  pointer-events: none;
+}
+
+.hdr-titlebar {
+  position: relative;
+  z-index: 1;
+  background:
+    linear-gradient(180deg,
+      rgba(238, 251, 255, 0.52) 0%,
+      rgba(115, 202, 255, 0.32) 52%,
+      rgba(38, 151, 232, 0.28) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.60);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76);
+  -webkit-backdrop-filter: blur(14px) saturate(155%);
+  backdrop-filter: blur(14px) saturate(155%);
+}
+
+.hdr-tb-title {
+  color: rgba(255, 255, 255, 0.98);
+  text-shadow:
+    0 1px 2px rgba(0, 67, 137, 0.42),
+    0 0 12px rgba(255, 255, 255, 0.28);
+}
+
+.hdr-tb-url {
+  color: rgba(255, 255, 255, 0.96);
+  background: rgba(220, 246, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.54);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    0 2px 6px rgba(0, 80, 155, 0.08);
+}
+
+.hdr-main {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(115deg,
+    rgba(215, 246, 255, 0.16),
+    rgba(255, 255, 255, 0.05) 52%,
+    rgba(55, 166, 244, 0.12));
+}
+
+.hdr-mascot {
+  filter:
+    drop-shadow(0 3px 7px rgba(0, 81, 160, 0.24))
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.32));
+}
+
+.site-name {
+  color: #ffffff;
+  letter-spacing: 0.7px;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.44),
+    0 2px 4px rgba(0, 65, 132, 0.34),
+    0 0 18px rgba(220, 248, 255, 0.38);
+}
+
+.site-name span {
+  color: #e0faff;
+  text-shadow: 0 1px 3px rgba(0, 92, 165, 0.25);
+}
+
+.site-desc {
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow:
+    0 1px 3px rgba(0, 65, 130, 0.42),
+    0 0 10px rgba(255, 255, 255, 0.12);
+}
+
+/* Small profile badges: translucent instead of solid candy colors */
+.aero-badge {
+  color: #ffffff;
+  background: linear-gradient(180deg,
+    rgba(234, 250, 255, 0.46),
+    rgba(53, 159, 236, 0.32));
+  border-color: rgba(255, 255, 255, 0.70);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    inset 0 -1px 0 rgba(57, 155, 225, 0.18),
+    0 3px 8px rgba(0, 79, 150, 0.10);
+  text-shadow: 0 1px 3px rgba(0, 62, 125, 0.38);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  backdrop-filter: blur(10px) saturate(150%);
+}
+
+.aero-badge::before {
+  height: 58%;
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.48),
+    rgba(255, 255, 255, 0.10) 72%,
+    transparent);
+}
+
+.ab-blue,
+.ab-aqua,
+.ab-green,
+.ab-sky,
+.ab-teal {
+  background: linear-gradient(180deg,
+    rgba(238, 252, 255, 0.48),
+    rgba(65, 168, 239, 0.32));
+}
+
+/* Mobile: keep the glass header airy without crowding */
+@media (max-width: 680px) {
+  header {
+    border-radius: 15px;
+  }
+
+  .hdr-main {
+    gap: 12px;
+    padding: 15px 13px 13px;
+  }
+
+  .hdr-mascot,
+  .hdr-mascot .icon-img {
+    width: 48px;
+    height: 48px;
+    font-size: 48px;
+  }
+
+  .site-name {
+    font-size: clamp(20px, 5.5vw, 26px);
+  }
+
+  .site-desc {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hdr-mascot {
+    animation: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   Frutiger Aero Glass Refresh — Phase 4
+   Content cards: clear aqua-blue crystal glass
+   ═══════════════════════════════════════════════ */
+
+/* Brighter, clearer glass while keeping body text readable */
+.glass {
+  background:
+    radial-gradient(ellipse at 14% 0%, rgba(255,255,255,.48) 0%, rgba(255,255,255,0) 45%),
+    linear-gradient(145deg,
+      rgba(188, 232, 255, .40) 0%,
+      rgba(73, 174, 245, .27) 48%,
+      rgba(200, 244, 255, .34) 100%);
+  border: 1px solid rgba(255,255,255,.78);
+  border-radius: 18px;
+  box-shadow:
+    inset 0 1.5px 0 rgba(255,255,255,.88),
+    inset 0 -1px 0 rgba(128,220,255,.28),
+    0 10px 28px rgba(0,76,160,.14),
+    0 2px 7px rgba(0,110,195,.09);
+  -webkit-backdrop-filter: blur(22px) saturate(165%);
+  backdrop-filter: blur(22px) saturate(165%);
+}
+
+/* Crystal-like title strip: brighter at the top, aqua-blue below */
+.glass-header {
+  background:
+    linear-gradient(180deg,
+      rgba(237, 251, 255, .60) 0%,
+      rgba(115, 205, 255, .40) 52%,
+      rgba(40, 151, 231, .34) 100%);
+  border-bottom: 1px solid rgba(255,255,255,.68);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.88),
+    0 1px 0 rgba(67,163,230,.08);
+  -webkit-backdrop-filter: blur(16px) saturate(165%);
+  backdrop-filter: blur(16px) saturate(165%);
+}
+
+.glass-header::after {
+  height: 62%;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,.48) 0%,
+    rgba(255,255,255,.15) 58%,
+    transparent 100%);
+}
+
+/* Content cards have a gentle lift, not a heavy shadow */
+.glass.post {
+  border-color: rgba(255,255,255,.78);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.86),
+    inset 0 -1px 0 rgba(130,220,255,.20),
+    0 9px 24px rgba(0,82,160,.13),
+    0 2px 6px rgba(0,110,200,.08);
+}
+
+.glass.post:hover {
+  border-color: rgba(255,255,255,.94);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.94),
+    inset 0 -1px 0 rgba(130,220,255,.28),
+    0 13px 30px rgba(0,82,160,.18),
+    0 3px 9px rgba(0,110,200,.11);
+}
+
+/* Diary: translucent author and content area, with crisp readable text */
+.diary-post {
+  background: linear-gradient(135deg,
+    rgba(231,249,255,.10),
+    rgba(76,174,242,.08) 58%,
+    rgba(255,255,255,.08));
+}
+
+.diary-avatar {
+  border-color: rgba(255,255,255,.94);
+  box-shadow:
+    0 0 0 1px rgba(104,199,255,.30),
+    0 3px 12px rgba(0,85,165,.18);
+}
+
+.diary-time {
+  color: rgba(239,250,255,.94);
+  text-shadow: 0 1px 3px rgba(0,65,130,.34);
+}
+
+.diary-content {
+  color: #f8fdff;
+  text-shadow: 0 1px 3px rgba(0,57,115,.34);
+}
+
+/* Music playlist rows: small glass tiles */
+.music-track-item {
+  background: linear-gradient(135deg,
+    rgba(235,250,255,.32),
+    rgba(76,174,242,.20));
+  border-color: rgba(255,255,255,.52);
+  border-radius: 12px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.48);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  backdrop-filter: blur(10px) saturate(150%);
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.music-track-item:hover,
+.music-track-item.active {
+  background: linear-gradient(135deg,
+    rgba(247,253,255,.55),
+    rgba(93,190,255,.38));
+  border-color: rgba(255,255,255,.84);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.78), 0 3px 10px rgba(0,90,170,.10);
+  transform: translateY(-1px);
+}
+
+/* Diary and gallery images inherit a clean glass frame when present */
+#tab-diary .diary-image,
+#tab-photos img,
+#tab-video video {
+  border: 1px solid rgba(255,255,255,.74);
+  border-radius: 13px;
+  box-shadow:
+    0 5px 16px rgba(0,75,150,.16),
+    inset 0 1px 0 rgba(255,255,255,.70);
+}
+
+/* Form fields: translucent ice-blue rather than opaque white */
+#tab-friends .friend-form input,
+#tab-friends .friend-form textarea,
+#tab-friends .friend-form select {
+  color: #f8fdff;
+  background: linear-gradient(135deg,
+    rgba(235,250,255,.28),
+    rgba(85,178,239,.18));
+  border-color: rgba(255,255,255,.62);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.42);
+  -webkit-backdrop-filter: blur(12px) saturate(145%);
+  backdrop-filter: blur(12px) saturate(145%);
+}
+
+#tab-friends .friend-form input::placeholder,
+#tab-friends .friend-form textarea::placeholder {
+  color: rgba(240,250,255,.78);
+}
+
+#tab-friends .friend-form input:focus,
+#tab-friends .friend-form textarea:focus,
+#tab-friends .friend-form select:focus {
+  outline: none;
+  border-color: rgba(255,255,255,.94);
+  box-shadow: 0 0 0 3px rgba(164,224,255,.22), inset 0 1px 0 rgba(255,255,255,.62);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-track-item { transition: none; }
+  .music-track-item:hover,
+  .music-track-item.active { transform: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PHASE 5 — Crystal buttons & small controls
+   Bright, transparent Frutiger Aero finish; existing behavior kept.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Shared crystal surface for interactive controls */
+.nav-tab,
+#music-prev,
+#music-next,
+#mp-disc-fa,
+#guestbook-submit,
+#friend-preview,
+#friend-submit,
+#tab-friends .friends-page-btn,
+#diary-lightbox .diary-lightbox-close {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid rgba(255,255,255,.76);
+  background: linear-gradient(180deg,
+    rgba(255,255,255,.48) 0%,
+    rgba(170,228,255,.30) 38%,
+    rgba(42,157,236,.24) 100%);
+  color: #f8fdff;
+  text-shadow: 0 1px 3px rgba(0,65,130,.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.88),
+    inset 0 -1px 0 rgba(72,174,235,.24),
+    0 3px 10px rgba(0,91,165,.13);
+  -webkit-backdrop-filter: blur(12px) saturate(155%);
+  backdrop-filter: blur(12px) saturate(155%);
+  transition: transform .18s ease, background .18s ease,
+    box-shadow .18s ease, border-color .18s ease, filter .18s ease;
+}
+
+/* Fine highlight on top edge, like a rounded glass button */
+.nav-tab::before,
+#music-prev::before,
+#music-next::before,
+#mp-disc-fa::before,
+#guestbook-submit::before,
+#friend-preview::before,
+#friend-submit::before,
+#tab-friends .friends-page-btn::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 1px 2px auto;
+  height: 44%;
+  border-radius: inherit;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,.38), rgba(255,255,255,0));
+  opacity: .82;
+  z-index: -1;
+}
+
+.nav-tab:hover,
+#music-prev:hover,
+#music-next:hover,
+#mp-disc-fa:hover,
+#guestbook-submit:hover,
+#friend-preview:hover,
+#friend-submit:hover,
+#tab-friends .friends-page-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.96);
+  background: linear-gradient(180deg,
+    rgba(255,255,255,.64),
+    rgba(177,232,255,.42) 44%,
+    rgba(42,164,244,.34));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    0 6px 16px rgba(0,96,176,.18),
+    0 0 0 1px rgba(190,238,255,.20);
+}
+
+.nav-tab:active,
+#music-prev:active,
+#music-next:active,
+#mp-disc-fa:active,
+#guestbook-submit:active,
+#friend-preview:active,
+#friend-submit:active,
+#tab-friends .friends-page-btn:not(:disabled):active {
+  transform: translateY(0) scale(.98);
+  box-shadow: inset 0 2px 5px rgba(0,91,165,.16),
+    0 1px 4px rgba(0,91,165,.12);
+}
+
+/* Selected navigation tab: brighter ice-blue glass */
+.nav-tab.active,
+.nav-tab[aria-current="page"] {
+  color: #07558e;
+  text-shadow: 0 1px 0 rgba(255,255,255,.72);
+  border-color: rgba(255,255,255,.98);
+  background: linear-gradient(180deg,
+    rgba(255,255,255,.78),
+    rgba(190,238,255,.58) 46%,
+    rgba(74,181,246,.44));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.98),
+    inset 0 -1px 0 rgba(64,159,224,.18),
+    0 3px 12px rgba(0,104,184,.16),
+    0 0 12px rgba(206,244,255,.18);
+}
+
+/* Music transport: rounder, brighter crystal controls */
+#music-prev,
+#music-next {
+  border-radius: 999px;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+#mp-disc-fa {
+  border-radius: 50%;
+  border-color: rgba(255,255,255,.92);
+  background: radial-gradient(circle at 34% 24%,
+    rgba(255,255,255,.82),
+    rgba(171,231,255,.54) 38%,
+    rgba(34,150,239,.44) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.98),
+    inset 0 -3px 8px rgba(0,93,168,.12),
+    0 5px 14px rgba(0,92,170,.20);
+}
+
+/* Form submit buttons: vivid aqua-blue glass, still readable */
+#guestbook-submit,
+#friend-submit {
+  border-radius: 999px;
+  font-weight: 600;
+  background: linear-gradient(180deg,
+    rgba(111,211,255,.90),
+    rgba(29,160,244,.88) 55%,
+    rgba(0,125,221,.90));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.86),
+    inset 0 -2px 0 rgba(0,79,160,.12),
+    0 4px 12px rgba(0,104,190,.22);
+}
+
+#guestbook-submit:hover,
+#friend-submit:hover {
+  background: linear-gradient(180deg,
+    rgba(151,225,255,.98),
+    rgba(48,177,250,.94) 55%,
+    rgba(8,140,232,.96));
+}
+
+#guestbook-submit:disabled,
+#friend-submit:disabled,
+#tab-friends .friends-page-btn:disabled {
+  opacity: .52;
+  filter: saturate(.72);
+  cursor: not-allowed;
+  transform: none;
+}
+
+#tab-friends .friends-page-btn.active {
+  color: #07558e;
+  border-color: rgba(255,255,255,.98);
+  background: linear-gradient(180deg,
+    rgba(255,255,255,.78), rgba(170,229,255,.58), rgba(58,165,240,.42));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.95),
+    0 3px 10px rgba(0,94,172,.15);
+}
+
+/* Keyboard focus remains visible and accessible */
+.nav-tab:focus-visible,
+#music-prev:focus-visible,
+#music-next:focus-visible,
+#mp-disc-fa:focus-visible,
+#guestbook-submit:focus-visible,
+#friend-preview:focus-visible,
+#friend-submit:focus-visible,
+#tab-friends .friends-page-btn:focus-visible,
+#diary-lightbox .diary-lightbox-close:focus-visible {
+  outline: 2px solid rgba(255,255,255,.98);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(49,164,239,.30);
+}
+
+@media (max-width: 680px) {
+  .nav-tab {
+    -webkit-backdrop-filter: blur(8px) saturate(145%);
+    backdrop-filter: blur(8px) saturate(145%);
+  }
+
+  #music-prev,
+  #music-next {
+    min-width: 36px;
+    min-height: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-tab,
+  #music-prev,
+  #music-next,
+  #mp-disc-fa,
+  #guestbook-submit,
+  #friend-preview,
+  #friend-submit,
+  #tab-friends .friends-page-btn {
+    transition: none;
+  }
+  .nav-tab:hover,
+  #music-prev:hover,
+  #music-next:hover,
+  #mp-disc-fa:hover,
+  #guestbook-submit:hover,
+  #friend-preview:hover,
+  #friend-submit:hover,
+  #tab-friends .friends-page-btn:not(:disabled):hover {
+    transform: none;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════
+   PHASE 6 — Frutiger Aero typography & glass bubbles
+   "Frutiger" is used when installed locally. A licensed
+   font file is needed for consistent rendering elsewhere.
+═══════════════════════════════════════════════ */
+
+/* Frutiger-first font stack with cross-platform fallbacks */
+body,
+button,
+input,
+select,
+textarea,
+.nav-tab,
+.aero-badge,
+.glass-header,
+.diary-nickname,
+.diary-time {
+  font-family: "Frutiger", "Frutiger LT 55 Roman",
+               "Frutiger LT Std", "Segoe UI", "Trebuchet MS",
+               Arial, sans-serif;
+}
+
+/* Keep technical readouts intentionally monospaced */
+.counter-digits,
+code,
+pre,
+kbd,
+samp {
+  font-family: "Courier New", monospace;
+}
+
+/* Softer, clearer type rendering on blue glass */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Brighter crystal edges and subtle inner reflections */
+.bubble {
+  background:
+    radial-gradient(circle at 28% 23%,
+      rgba(255,255,255,.98) 0%,
+      rgba(255,255,255,.62) 8%,
+      rgba(215,246,255,.24) 22%,
+      rgba(113,204,255,.16) 48%,
+      rgba(255,255,255,.04) 68%,
+      rgba(255,255,255,0) 76%);
+  border: 1px solid rgba(255,255,255,.82);
+  box-shadow:
+    inset 1px 1px 3px rgba(255,255,255,.92),
+    inset -2px -3px 7px rgba(65,165,235,.18),
+    0 0 10px rgba(195,238,255,.18);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+}
+
+.bubble::before {
+  content: "";
+  position: absolute;
+  width: 26%;
+  height: 12%;
+  top: 17%;
+  left: 20%;
+  border-radius: 50%;
+  background: rgba(255,255,255,.9);
+  filter: blur(1px);
+  transform: rotate(-35deg);
+  pointer-events: none;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  top: 31%;
+  left: 16%;
+  border-radius: 50%;
+  background: rgba(255,255,255,.7);
+  box-shadow: 0 0 5px rgba(255,255,255,.5);
+  pointer-events: none;
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bubble,
+  .leaf {
+    animation: none !important;
+    opacity: .18;
+  }
+}
+
+/* ══ Phase 7: Clear typography & balanced spacing ══ */
+:root {
+  --aero-text-main: #f8fdff;
+  --aero-text-soft: rgba(245, 252, 255, .88);
+  --aero-text-muted: rgba(232, 247, 255, .76);
+  --aero-space-xs: 6px;
+  --aero-space-sm: 10px;
+  --aero-space-md: 16px;
+  --aero-space-lg: 22px;
+}
+
+/* Use a readable system fallback if Frutiger is not installed. */
+body {
+  color: var(--aero-text-main);
+  font-family: "Frutiger", "Frutiger LT 55 Roman", "Frutiger LT Std",
+               "Segoe UI", "Trebuchet MS", Arial, sans-serif;
+  line-height: 1.6;
+  letter-spacing: .01em;
+}
+
+/* Improve readability on translucent blue surfaces without changing layout. */
+.glass,
+.glass.post,
+.post,
+.diary-post,
+.diary-content,
+.music-playlist,
+.music-track,
+.friend-card,
+.link-card {
+  line-height: 1.6;
+}
+
+.glass-header {
+  line-height: 1.35;
+  letter-spacing: .025em;
+}
+
+.gh-title {
+  line-height: 1.35;
+  letter-spacing: .02em;
+  text-shadow: 0 1px 5px rgba(18, 104, 169, .16);
+}
+
+/* Consistent paragraph rhythm, scoped to content areas. */
+.diary-content p,
+.post-content p,
+.blog-content p,
+#tab-blog p,
+#tab-diary .diary-content p {
+  margin-top: 0;
+  margin-bottom: 1em;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.diary-content p:last-child,
+.post-content p:last-child,
+.blog-content p:last-child {
+  margin-bottom: 0;
+}
+
+.diary-nickname,
+.diary-author-info .diary-nickname {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: .015em;
+}
+
+.diary-time {
+  display: block;
+  margin-top: 3px;
+  font-size: .82rem;
+  line-height: 1.45;
+  color: var(--aero-text-muted);
+}
+
+.diary-author {
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.diary-author-info {
+  min-width: 0;
+  line-height: 1.45;
+}
+
+/* Form controls and small labels stay compact but easy to scan. */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  line-height: 1.5;
+}
+
+button,
+.nav-tab {
+  letter-spacing: .01em;
+}
+
+/* Avoid long words or URLs stretching glass cards on narrow screens. */
+.glass,
+.post,
+.diary-content,
+.music-track-list {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+  body {
+    line-height: 1.55;
+  }
+
+  .diary-author {
+    gap: 10px;
+    margin-bottom: 13px;
+  }
+
+  .diary-content p,
+  .post-content p,
+  .blog-content p,
+  #tab-blog p {
+    line-height: 1.72;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   PHASE 8 — Frutiger Aero floating glass bubbles
+   Customize sizes and positions with the variables below.
+   ═══════════════════════════════════════════════════════ */
+
+/* Decorative layer never blocks links, tabs, or player controls. */
+.aero-bubble-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.aero-bubble {
+  position: absolute;
+  left: var(--bubble-x, 10%);
+  top: var(--bubble-y, 30%);
+  width: var(--bubble-size, 54px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: var(--bubble-opacity, .62);
+  background:
+    radial-gradient(ellipse at 28% 20%, rgba(255,255,255,.98) 0 4%, rgba(255,255,255,.56) 12%, transparent 30%),
+    radial-gradient(ellipse at 68% 76%, rgba(73,178,255,.18), transparent 45%),
+    radial-gradient(circle at 36% 30%, rgba(255,255,255,.5), rgba(176,230,255,.20) 42%, rgba(91,184,255,.12) 65%, rgba(255,255,255,.42) 72%, rgba(255,255,255,.08) 79%, transparent 82%);
+  border: 1px solid rgba(255,255,255,.76);
+  box-shadow: inset 2px 2px 7px rgba(255,255,255,.65), inset -3px -4px 9px rgba(57,158,235,.13), 0 4px 14px rgba(38,135,205,.10);
+  animation: aero-bubble-drift var(--bubble-speed, 12s) ease-in-out infinite;
+  animation-delay: var(--bubble-delay, 0s);
+}
+
+.aero-bubble::before {
+  content: "";
+  position: absolute;
+  top: 17%;
+  left: 22%;
+  width: 28%;
+  height: 12%;
+  border-radius: 50%;
+  background: rgba(255,255,255,.9);
+  filter: blur(1px);
+  transform: rotate(-32deg);
+}
+
+.aero-bubble::after {
+  content: "";
+  position: absolute;
+  right: 17%;
+  bottom: 19%;
+  width: 12%;
+  height: 12%;
+  border-radius: 50%;
+  background: rgba(255,255,255,.7);
+  filter: blur(.5px);
+}
+
+@keyframes aero-bubble-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(7px, -18px, 0) scale(1.035); }
+}
+
+/* Keep content above the decorative bubbles. */
+.site { position: relative; z-index: 3; }
+
+/* The existing stickers can be repositioned by changing these values. */
+.floating-sticker { cursor: default; }
+.sticker-star { --sticker-x: 3%; }
+
+@media (max-width: 600px) {
+  .aero-bubble { opacity: .38; }
+  .aero-bubble:nth-child(2n) { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aero-bubble { animation: none; }
+}
+
+/* ══ PHASE 9 — Draggable sticker studio ══ */
+.floating-sticker {
+  pointer-events: auto;
+  touch-action: none;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: filter .18s ease, opacity .18s ease;
+}
+.floating-sticker.is-dragging {
+  cursor: grabbing;
+  animation-play-state: paused;
+  z-index: 1000;
+  filter: drop-shadow(0 7px 12px rgba(37, 115, 180, .28));
+}
+.floating-sticker.is-dragging,
+.floating-sticker.is-selected { animation-play-state: paused; }
+.sticker-edit-mode .floating-sticker.is-selected {
+  filter: drop-shadow(0 0 5px rgba(83, 190, 255, .9)) drop-shadow(0 4px 7px rgba(65, 120, 160, .2));
+}
+.sticker-studio {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  max-width: calc(100vw - 20px);
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,.82);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(245,252,255,.92), rgba(191,231,255,.78));
+  box-shadow: 0 8px 28px rgba(40,119,177,.2), inset 0 1px 0 rgba(255,255,255,.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #285b7d;
+  font: 12px/1.2 inherit;
+}
+.sticker-studio button {
+  border: 1px solid rgba(116,177,214,.48);
+  border-radius: 10px;
+  padding: 6px 9px;
+  color: #285b7d;
+  background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(219,242,255,.88));
+  box-shadow: 0 2px 5px rgba(58,130,180,.1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.sticker-studio button:hover { background: #fff; }
+.sticker-studio button:focus-visible { outline: 2px solid #56baff; outline-offset: 2px; }
+#sticker-selected-label {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: .85;
+}
+body:not(.sticker-edit-mode) .floating-sticker { cursor: default; }
+@media (max-width: 600px) {
+  .sticker-studio { bottom: 8px; gap: 4px; padding: 6px; border-radius: 14px; }
+  .sticker-studio button { padding: 6px 7px; font-size: 11px; }
+  #sticker-selected-label { display: none; }
+}
+
+/* ══ PHASE 10 — Collapsible Frutiger Aero sticker management panel ══ */
+.sticker-studio {
+  display: block;
+  width: max-content;
+  max-width: calc(100vw - 20px);
+  padding: 7px;
+}
+.sticker-studio-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.sticker-studio-panel {
+  width: min(560px, calc(100vw - 34px));
+  max-height: min(62vh, 420px);
+  overflow: auto;
+  padding: 10px 4px 4px;
+  color: #285b7d;
+}
+.sticker-studio-panel[hidden] { display: none; }
+.sticker-control-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 5px 0 10px;
+  font-size: 12px;
+}
+.sticker-control-row label,
+.sticker-add-form label { font-weight: 700; }
+#sticker-opacity { width: 100px; accent-color: #55b8ed; }
+#sticker-tab-select,
+.sticker-add-form input {
+  min-width: 0;
+  border: 1px solid rgba(116,177,214,.55);
+  border-radius: 9px;
+  padding: 7px 9px;
+  background: rgba(255,255,255,.88);
+  color: #285b7d;
+  font: inherit;
+}
+.sticker-add-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 7px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(116,177,214,.3);
+}
+.sticker-add-form label { grid-column: 1 / -1; }
+.sticker-add-form small { grid-column: 1 / -1; opacity: .78; line-height: 1.4; }
+.sticker-add-form button {
+  border: 1px solid rgba(116,177,214,.48);
+  border-radius: 10px;
+  padding: 7px 10px;
+  color: #285b7d;
+  background: linear-gradient(180deg, #fff, #d8f0ff);
+  cursor: pointer;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .sticker-studio { left: 8px; right: 8px; bottom: 8px; width: auto; max-width: none; transform: none; }
+  .sticker-studio-bar { gap: 4px; }
+  .sticker-studio-panel { width: auto; }
+  .sticker-add-form { grid-template-columns: 1fr; }
+  .sticker-add-form label, .sticker-add-form small { grid-column: auto; }
+  #sticker-selected-label { display: inline-block; max-width: 90px; }
+}
+
+
+/* ══ PHASE 11 — Sticker scene presets and quick library ══ */
+.sticker-scene-presets,
+.sticker-library-row {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 7px;
+  margin: 7px 0 10px; padding: 8px 0;
+  border-bottom: 1px solid rgba(116,177,214,.28);
+  color: #285b7d; font-size: 12px;
+}
+.sticker-scene-presets strong,
+.sticker-library-row label { font-weight: 700; margin-right: 2px; }
+.sticker-scene-presets button { border-radius: 999px; padding: 6px 10px; }
+#sticker-library-select {
+  flex: 1 1 180px; min-width: 150px; max-width: 100%;
+  border: 1px solid rgba(116,177,214,.55); border-radius: 9px;
+  padding: 7px 9px; background: rgba(255,255,255,.9); color: #285b7d; font: inherit;
+}
+#sticker-library-add { flex: 0 0 auto; }
+@media (max-width: 600px) {
+  .sticker-scene-presets, .sticker-library-row { align-items: stretch; }
+  .sticker-scene-presets strong, .sticker-library-row label { flex-basis: 100%; }
+  #sticker-library-select { flex-basis: 100%; }
+}
+
+/* 仅海豚图片轻微摆动 */
+.dolphin-mascot {
+  transform-origin: center bottom;
+  animation: dolphin-sway 2s ease-in-out infinite;
+}
+
+@keyframes dolphin-sway {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
