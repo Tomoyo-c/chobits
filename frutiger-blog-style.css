@@ -3009,4 +3009,21 @@ body:not(.sticker-edit-mode) .floating-sticker { cursor: default; }
   .diary-image {
     transition: none;
   }
+}/* ══ Sidebar Subtitle · Frutiger Aero Glow ══ */
+
+.sb-sub.frutiger-glow-text {
+  color: #236B9A;
+  text-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.45),
+    0 0 5px rgba(72, 201, 232, 0.18);
+  letter-spacing: 0.5px;
+}/* ══ Friends Intro · Frutiger Aero Glow ══ */
+
+.friends-intro {
+  color: #236B9A;
+  font-style: italic;
+  text-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.45),
+    0 0 5px rgba(72, 201, 232, 0.18);
+  letter-spacing: 0.5px;
 }
