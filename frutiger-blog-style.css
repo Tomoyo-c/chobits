@@ -2802,3 +2802,211 @@ body:not(.sticker-edit-mode) .floating-sticker { cursor: default; }
     transform: rotate(5deg);
   }
 }
+
+/* ══════════════════════════════════════
+   Frutiger Aero Diary 2.0
+   ══════════════════════════════════════ */
+
+/* Diary card */
+
+/* Diary card — seamless connection with header */
+.diary-post {
+  position: relative;
+  min-width: 0;
+  padding: 16px;
+  overflow: hidden;
+
+  /* 移除内层顶部的圆角和边框 */
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.48),
+    rgba(205, 239, 255, 0.22)
+  );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 5px 18px rgba(66, 157, 215, 0.08);
+}
+
+}
+
+/* Author row */
+.diary-author {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  margin-bottom: 16px;
+}
+
+.diary-avatar {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  display: block;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  box-shadow:
+    0 2px 8px rgba(50, 145, 200, 0.18),
+    inset 0 0 0 1px rgba(95, 190, 235, 0.2);
+}
+
+.diary-author-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  min-width: 0;
+}
+
+.diary-nickname {
+  color: var(--text-mid);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.diary-time {
+  color: var(--text-light);
+  font-size: 10.5px;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Diary text */
+.diary-content {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.diary-content p {
+  margin: 0 0 14px;
+  color: var(--text-mid);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* Image gallery */
+.diary-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 12px;
+}
+
+.diary-images.diary-gallery-empty {
+  display: none;
+}
+
+/* Single image: centered, not stretched */
+.diary-images.diary-gallery-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.diary-gallery-single .diary-image {
+  width: 100%;
+  max-width: 420px;
+  max-height: 460px;
+  justify-self: start;
+  object-fit: contain;
+}
+
+/* Multiple images: responsive grid */
+.diary-images.diary-gallery-multiple {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.diary-gallery-multiple .diary-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Shared image appearance */
+.diary-image {
+  display: block;
+  min-width: 0;
+  height: auto;
+  max-width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  background: rgba(190, 232, 250, 0.18);
+  box-shadow:
+    0 3px 10px rgba(52, 140, 195, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  cursor: zoom-in;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.diary-image[hidden] {
+  display: none !important;
+}
+
+.diary-image:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(52, 140, 195, 0.2);
+}
+
+/* Decorative bubble */
+.diary-thumb {
+  pointer-events: none;
+}
+
+/* ══ Mobile layout ══ */
+@media (max-width: 600px) {
+  .diary-post {
+    padding: 12px;
+    border-radius: 0 0 13px 13px;
+  }
+}
+
+  .diary-author {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .diary-avatar {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .diary-content p {
+    font-size: 12.5px;
+    line-height: 1.85;
+  }
+
+  .diary-images {
+    gap: 7px;
+    margin-top: 10px;
+  }
+
+  .diary-gallery-single .diary-image {
+    max-width: 100%;
+    max-height: 360px;
+  }
+
+  .diary-gallery-multiple .diary-image {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .diary-image {
+    transition: none;
+  }
+}

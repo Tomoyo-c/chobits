@@ -445,23 +445,118 @@ if (document.readyState === "loading") {
 })();
 
 /* ══ Diary Auto Date & Time ══ */
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll("#tab-diary time[data-auto-time]").forEach(function (time) {
-    const now = new Date();
 
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, "0");
-    const day = String(now.getDate()).padStart(2, "0");
-    const hours = String(now.getHours()).padStart(2, "0");
-    const minutes = String(now.getMinutes()).padStart(2, "0");
+/* ══ Frutiger Aero Diary 2.0 ══ */
+(function () {
+  // 自动时间
+  function initDiaryTimes() {
+    document.querySelectorAll('.diary-time[data-auto-time]').forEach(function (el) {
+      // 已初始化的时间不重复修改
+      if (el.dataset.timeInitialized === 'true') return;
 
-    time.dateTime =
-      `${year}-${month}-${day}T${hours}:${minutes}`;
+      // 可选：固定发布时间，例如 2026-10-23T09:30:00
+      const published = el.dataset.published;
+      const date = published ? new Date(published) : new Date();
 
-    time.textContent =
-      `${year}.${month}.${day} ${hours}:${minutes}`;
-  });
-});
+      if (Number.isNaN(date.getTime())) {
+        el.textContent = '时间格式错误';
+        return;
+      }
+
+      const pad = n => String(n).padStart(2, '0');
+
+      const formatted =
+        date.getFullYear() + '-' +
+        pad(date.getMonth() + 1) + '-' +
+        pad(date.getDate()) + ' ' +
+        pad(date.getHours()) + ':' +
+        pad(date.getMinutes());
+
+      el.textContent = formatted;
+      el.dateTime = date.toISOString();
+      el.dataset.timeInitialized = 'true';
+    });
+  }
+
+  // 图片管理
+  function initDiaryImages() {
+    document.querySelectorAll('.diary-images').forEach(function (gallery) {
+      const images = Array.from(
+        gallery.querySelectorAll('.diary-image')
+      );
+
+      images.forEach(function (img) {
+        // 防止重复绑定错误事件
+        if (img.dataset.imageInitialized === 'true') return;
+        img.dataset.imageInitialized = 'true';
+
+        // 没有图片地址就隐藏
+        if (!img.getAttribute('src')?.trim()) {
+          img.hidden = true;
+          return;
+        }
+
+        // 图片加载成功
+        img.addEventListener('load', function () {
+          img.hidden = false;
+          updateGallery(gallery);
+        });
+
+        // 图片加载失败
+        img.addEventListener('error', function () {
+          img.hidden = true;
+          updateGallery(gallery);
+        });
+
+        // 处理缓存中已经加载完成的图片
+        if (img.complete) {
+          if (img.naturalWidth > 0) {
+            img.hidden = false;
+          } else {
+            img.hidden = true;
+          }
+        }
+      });
+
+      updateGallery(gallery);
+    });
+  }
+
+  // 根据可见图片数量调整布局
+  function updateGallery(gallery) {
+    const visibleImages = Array.from(
+      gallery.querySelectorAll('.diary-image')
+    ).filter(function (img) {
+      return !img.hidden && img.naturalWidth > 0;
+    });
+
+    gallery.classList.toggle(
+      'diary-gallery-empty',
+      visibleImages.length === 0
+    );
+
+    gallery.classList.toggle(
+      'diary-gallery-single',
+      visibleImages.length === 1
+    );
+
+    gallery.classList.toggle(
+      'diary-gallery-multiple',
+      visibleImages.length > 1
+    );
+  }
+
+  function initDiary() {
+    initDiaryTimes();
+    initDiaryImages();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDiary);
+  } else {
+    initDiary();
+  }
+})();
 
 /* ══ Diary Image Lightbox ══ */
 

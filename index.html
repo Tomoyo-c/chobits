@@ -499,6 +499,73 @@
 <!-- ══ TAB: DIARY ══ -->
  
 <div class="tab-pane" id="tab-diary">
+  
+
+<!-- ══ Frutiger Aero Diary 2.0 ══ -->
+<div class="glass post">
+  <div class="glass-header">
+    <div class="gh-icon aqua"></div>
+    <span class="gh-title">📝 Diary</span>
+  </div>
+
+  <article class="diary-post">
+
+    <!-- Diary Author -->
+    <div class="diary-author">
+      <img
+        src="Musicislife.jpg"
+        class="diary-avatar"
+        alt="Zeon avatar"
+      >
+
+      <div class="diary-author-info">
+        <div class="diary-nickname">Zeon</div>
+
+        <!-- 自动时间；也可通过 data-published 指定固定时间 -->
+        <time class="diary-time" data-auto-time></time>
+      </div>
+    </div>
+
+    <!-- Diary Content -->
+    <div class="diary-content">
+
+      <p>
+        为啥我上午要写日记呢？应该在晚上睡前写吧，早上吃了培根煎蛋🥓🍳回复了75饱食度
+      </p>
+
+      <!-- Diary Images：没有图片就自动隐藏 -->
+      <div class="diary-images">
+
+        <!-- 有图片时填写 src，没有图片时删除这行或留空 -->
+        <img
+          src=""
+          alt="Diary photo"
+          class="diary-image"
+          onclick="openDiaryImage(this)"
+          loading="lazy"
+        >
+
+        <!-- 需要多张图片时，复制上面的 img 并修改 src -->
+        <!--
+        <img
+          src="images/diary-02.jpg"
+          alt="Diary photo 2"
+          class="diary-image"
+          onclick="openDiaryImage(this)"
+          loading="lazy"
+        >
+        -->
+
+      </div>
+    </div>
+
+    <!-- Decorative bubble -->
+    <div class="diary-thumb dt-aqua" aria-hidden="true"></div>
+
+  </article>
+</div>
+<!-- ══ End Diary Entry ══ -->
+
  <!-- ══ Diary Entry ══ -->
 <div class="glass post">
   <div class="glass-header">
@@ -519,14 +586,16 @@
       <div class="diary-author-info">
         <div class="diary-nickname">Zeon</div>
 
-        <time class="diary-time" data-auto-time>
-          自动生成时间
+        <time class="diary-time" datetime="2026-10-20 19:45">
+            2026.10.22 15:55
         </time>
       </div>
     </div>
 
     <!-- Diary Content -->
+     
     <div class="diary-content">
+      
       <p>好累啊，修改了一天的博客...结果还是有很多bug，但我新增了友链功能，还创建了个人图床~</p>
       <!-- ══ Diary Images ══ -->
 
