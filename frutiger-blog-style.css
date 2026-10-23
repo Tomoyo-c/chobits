@@ -108,11 +108,130 @@ nav { background:linear-gradient(180deg,rgba(100,185,248,.98),rgba(50,140,215,.9
   }
 }
 
-/* Breadcrumb */
-.breadcrumb { background:linear-gradient(180deg,rgba(220,244,255,.92),rgba(195,232,255,.92));border-bottom:1px solid rgba(160,215,248,.5);padding:5px 16px;font-size:10.5px;color:var(--text-light);display:flex;align-items:center;gap:5px; }
-.breadcrumb a { color:var(--sky3);text-decoration:none; }
-.breadcrumb a:hover { text-decoration:underline; }
-.bc-globe { width:12px;height:12px;background:radial-gradient(circle at 35% 30%,#90d8ff,#2890d8);border-radius:50%;border:1px solid rgba(255,255,255,.5);flex-shrink:0; }
+
+/* ══ Frutiger Aero Breadcrumb ══ */
+
+.breadcrumb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 7px 16px;
+  font-size: 10.5px;
+  color: var(--text-light);
+
+  /* 冰蓝色玻璃背景 */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, .82) 0%,
+      rgba(218, 244, 255, .76) 35%,
+      rgba(174, 224, 255, .72) 100%
+    );
+
+  border-top: 1px solid rgba(255, 255, 255, .95);
+  border-bottom: 1px solid rgba(111, 193, 239, .45);
+
+  /* 玻璃质感 */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .75),
+    inset 0 -2px 5px rgba(99, 190, 245, .12),
+    0 2px 7px rgba(66, 157, 215, .08);
+
+  overflow: hidden;
+}
+
+/* 顶部水光高光 */
+.breadcrumb::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, .52),
+    rgba(255, 255, 255, 0)
+  );
+
+  pointer-events: none;
+}
+
+/* 导航链接 */
+.breadcrumb a {
+  position: relative;
+  z-index: 1;
+
+  color: var(--sky3);
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .7);
+
+  transition:
+    color .2s ease,
+    text-shadow .2s ease;
+}
+
+.breadcrumb a:hover {
+  color: #1688c9;
+  text-decoration: none;
+  text-shadow: 0 0 7px rgba(80, 190, 255, .4);
+}
+
+/* 立体玻璃地球 */
+.bc-globe {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 22%,
+      #ffffff 0%,
+      #c9f2ff 15%,
+      #79d2ff 42%,
+      #35a5eb 72%,
+      #1680ca 100%
+    );
+
+  border: 1px solid rgba(255, 255, 255, .9);
+
+  box-shadow:
+    inset 1px 1px 2px rgba(255, 255, 255, .85),
+    inset -2px -2px 4px rgba(0, 93, 170, .25),
+    0 1px 4px rgba(34, 139, 205, .25);
+}
+
+/* 地球表面的玻璃反光 */
+.bc-globe::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 5px;
+  height: 3px;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, .95);
+  filter: blur(.3px);
+}
+
+/* 可选：面包屑文字分隔符 */
+.breadcrumb .bc-separator {
+  color: rgba(64, 151, 205, .65);
+  font-size: 12px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+}
+.breadcrumb {
+  border-radius: 12px;
+  margin: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, .8);
+  overflow: hidden;
+}
 
 /* Body layout */
 .body-wrap { flex:1;display:grid;grid-template-columns:1fr 250px;gap:12px;padding:14px;align-items:start; }
@@ -186,15 +305,90 @@ nav { background:linear-gradient(180deg,rgba(100,185,248,.98),rgba(50,140,215,.9
 .page-btn:not(.active) { background:linear-gradient(180deg,rgba(220,245,255,.8),rgba(190,230,255,.7));color:var(--text-mid); }
 .page-btn:hover:not(.active) { background:rgba(255,255,255,.9); }
 
+
 /* ======== ABOUT TAB ======== */
-.about-hero { width:100%;height:110px;border-radius:8px;background:linear-gradient(135deg,#b8f0e8,#80d8f0);border:1px solid rgba(255,255,255,.7);margin-bottom:10px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 3px 10px rgba(40,120,200,.15); }
-.about-hero::after { content:'';position:absolute;top:0;left:0;right:0;height:40%;background:linear-gradient(180deg,rgba(255,255,255,.35),transparent);pointer-events:none; }
-.about-hero .icon-img { width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1; }
-.about-hero .icon-fallback { font-size:50px;display:none;position:relative;z-index:1; }
-.about-text { font-size:12px;color:var(--text-mid);line-height:1.7;margin-bottom:10px; }
-.about-facts { list-style:none;display:flex;flex-direction:column;gap:5px; }
-.about-facts li { font-size:11.5px;color:var(--text-mid);padding:5px 8px;background:rgba(255,255,255,.4);border:1px solid rgba(160,210,245,.3);border-radius:7px;display:flex;align-items:center;gap:7px; }
-.af-dot { width:8px;height:8px;border-radius:50%;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,.15); }
+.about-hero {
+  width: 100%;
+  min-height: 110px;
+  height: auto;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #b8f0e8, #80d8f0);
+  border: 1px solid rgba(255,255,255,.7);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 3px 10px rgba(40,120,200,.15);
+}
+
+.about-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.35),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.about-hero .icon-img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero .icon-fallback {
+  font-size: 50px;
+  display: none;
+  position: relative;
+  z-index: 1;
+}
+
+.about-text {
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.about-facts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.about-facts li {
+  font-size: 11.5px;
+  color: var(--text-mid);
+  padding: 5px 8px;
+  background: rgba(255,255,255,.4);
+  border: 1px solid rgba(160,210,245,.3);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.af-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,.15);
+}
+
 
 /* ======== ART TAB ======== */
 .art-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:7px; }
