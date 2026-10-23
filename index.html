@@ -501,6 +501,61 @@
 <div class="tab-pane" id="tab-diary">
   
 
+<!-- ══ Diary Entry ══ -->
+<div class="glass post">
+  <div class="glass-header">
+    <div class="gh-icon aqua"></div>
+    <span class="gh-title">📝 Diary</span>
+  </div>
+
+  <article class="diary-post">
+
+    <!-- Diary Author -->
+    <div class="diary-author">
+      <img
+        src="Musicislife.jpg"
+        class="diary-avatar"
+        alt="Zeon avatar"
+      >
+
+      <div class="diary-author-info">
+        <div class="diary-nickname">Zeon</div>
+
+        <!-- 固定发布时间：请修改为实际日期和时间 -->
+        <time
+          class="diary-time"
+          datetime="2026-10-23T12:00:00"
+        >2026-10-23 12:00</time>
+      </div>
+    </div>
+
+    <!-- Diary Content：在这里填写日记 -->
+    <div class="diary-content">
+      <p>
+        写代码好难啊，还好有gpt帮我
+      </p>
+
+      <!-- Diary Images：不需要图片时，删除整个 diary-images 区域 -->
+      <div class="diary-images">
+
+        <img
+          src=""
+          alt="Diary photo"
+          class="diary-image"
+          onclick="openDiaryImage(this)"
+          loading="lazy"
+        >
+
+      </div>
+    </div>
+
+    <!-- Decorative bubble -->
+    <div class="diary-thumb dt-aqua" aria-hidden="true"></div>
+
+  </article>
+</div>
+<!-- ══ End Diary Entry ══ -->
+
 <!-- ══ Frutiger Aero Diary 2.0 ══ -->
 <div class="glass post">
   <div class="glass-header">
@@ -522,7 +577,12 @@
         <div class="diary-nickname">Zeon</div>
 
         <!-- 自动时间；也可通过 data-published 指定固定时间 -->
-        <time class="diary-time" data-auto-time></time>
+        <time
+  class="diary-time"
+  datetime="2026-10-23T11:43:00"
+>
+  2026-10-23 11:43
+</time>
       </div>
     </div>
 
