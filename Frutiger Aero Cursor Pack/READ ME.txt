@@ -1,0 +1,37 @@
+- FRUTIGER AERO CURSOR PACK -
+-----------------------------
+
+
+Frutiger Aero Cursor Pack is a free cursor pack perfect for adding frutiger aero vibes to your desktop.
+Personal use only (non-commercial).
+
+--------------------------------------------
+- How to use the Frutiger Aero Cursor Pack -
+--------------------------------------------
+
+Move the Frutiger Aero​ Cursor Pack’s cursor files to the following location: 
+C:\Windows\Cursors
+
+Some reason on Windows 11, if the cursor files aren't stored in that folder, 
+the system may revert the cursor settings to default over time.
+
+To change cursor schemes, open:
+
+Control Panel > Mouse > Pointers tab
+or
+Settings > Bluetooth & devices > Mouse > Additional mouse settings > Pointers tab
+
+
+Thank you for using the Frutiger Aero Cursor Pack — enjoy your new look​!~
+
+-------------------------------------------------------------------------
+
+The Frutiger Aero Cursor Pack was made by Tepaiini
+
+
+-----------------
+- Download link -
+-----------------
+
+https://tepaiini.itch.io/frutiger-aero
+

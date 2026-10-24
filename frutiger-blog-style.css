@@ -3027,3 +3027,264 @@ body:not(.sticker-edit-mode) .floating-sticker { cursor: default; }
     0 0 5px rgba(72, 201, 232, 0.18);
   letter-spacing: 0.5px;
 }
+
+
+/* ═══════════════════════════════════════
+   FRUTIGER AERO CURSOR PACK
+   Custom cursors for Zeon's personal blog
+   ═══════════════════════════════════════ */
+
+/* 01. Normal Select — 普通鼠标箭头 */
+html,
+body,
+body * {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Normal_Select.cur") 3 2, default;
+}
+
+/* 02. Link Select — 链接、按钮、可点击元素 */
+a,
+a *,
+button,
+button *,
+summary,
+[role="button"],
+[role="button"] *,
+.nav-tab,
+.nav-tab *,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+label[for],
+select,
+.clickable {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Link_Select.cur") 6 2, pointer;
+}
+
+/* 03. Text Select — 可选择和编辑的文本 */
+p,
+span,
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.post-excerpt,
+.diary-content,
+.diary-content *,
+.sb-sub,
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea,
+[contenteditable="true"] {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Text_Select.cur") 12 12, text;
+}
+
+/* 04. Alternate Select — 备用选择 */
+[draggable="true"],
+[aria-grabbed="true"] {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Alternate_Select.cur") 3 2, alias;
+}
+
+/* 05. Help Select — 帮助提示 */
+[title],
+[aria-description],
+.help-cursor {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Help_Select.cur") 3 2, help;
+}
+
+/* 06. Busy — 忙碌状态 */
+.is-busy,
+[aria-busy="true"],
+.loading,
+.loading * {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Busy.ani"), wait;
+}
+
+/* 07. Working in Background — 后台处理中 */
+.is-processing,
+.is-processing *,
+.background-working {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Working_in_Background.ani"), progress;
+}
+
+/* 08. Precision Select — 精确选择 */
+canvas,
+.precision-cursor,
+.pixel-editor {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Precision_Select.cur") 15 15, crosshair;
+}
+
+/* 09. Move — 移动元素 */
+[draggable="true"]:active,
+.move-cursor,
+.dragging {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Move.cur") 12 12, move;
+}
+
+/* 10. Person Select — 人物选择 */
+.person-cursor,
+[data-cursor="person"] {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Person_Select.cur") 6 2, pointer;
+}
+
+/* 11. Location Select — 位置选择 */
+.location-cursor,
+[data-cursor="location"] {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Location_Select.cur") 12 12, crosshair;
+}
+
+/* 12. Unavailable — 禁止操作 */
+:disabled,
+[aria-disabled="true"],
+.is-unavailable,
+.not-allowed {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Unavailable.cur") 3 2, not-allowed;
+}
+
+/* 13. Handwriting — 手写区域 */
+.handwriting,
+[contenteditable="true"].handwriting {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Handwriting.cur") 12 12, text;
+}
+
+/* 14. Horizontal Resize — 水平调整大小 */
+.resize-x,
+[role="separator"][aria-orientation="vertical"] {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Horizontal_Resize.cur") 12 12, ew-resize;
+}
+
+/* 15. Vertical Resize — 垂直调整大小 */
+.resize-y,
+[role="separator"][aria-orientation="horizontal"] {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Vertical_Resize.cur") 12 12, ns-resize;
+}
+
+/* 16. Diagonal Resize 1 — 对角线调整大小 */
+.resize-diagonal-1 {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Diagonal_Resize_1.cur") 12 12, nwse-resize;
+}
+
+/* 17. Diagonal Resize 2 — 反方向对角线调整大小 */
+.resize-diagonal-2 {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Diagonal_Resize_2.cur") 12 12, nesw-resize;
+}
+
+/* ═══════════════════════════════════════
+   FRUTIGER AERO — INTERACTIVE CURSOR FIX
+   修复播放器、翻页按钮、图片预览的指针
+   ═══════════════════════════════════════ */
+
+/* 1. 音乐播放器：按钮、图标、进度条 */
+.music-player button,
+.music-player button *,
+.music-player a,
+.music-player a *,
+.music-player [role="button"],
+.music-player [role="button"] *,
+.music-player .player-controls *,
+.music-player .music-controls *,
+.music-player .play-btn,
+.music-player .pause-btn,
+.music-player .prev-btn,
+.music-player .next-btn,
+.music-player .volume-btn,
+.music-player .playlist-toggle,
+.music-playlist summary,
+.music-playlist summary *,
+#music-player button,
+#music-player button *,
+#music-player a,
+#music-player a *,
+#music-player [role="button"],
+#music-player [role="button"] * {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Link_Select.cur") 6 2, pointer !important;
+}
+
+/* 音乐播放器的滑动进度条 */
+.music-player input[type="range"],
+#music-player input[type="range"],
+.music-player input[type="range"]::-webkit-slider-thumb,
+#music-player input[type="range"]::-webkit-slider-thumb {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Link_Select.cur") 6 2, pointer !important;
+}
+
+/* 2. 翻页按钮：常见分页组件 */
+.pagination a,
+.pagination button,
+.pagination a *,
+.pagination button *,
+.pagination [role="button"],
+.pagination [role="button"] *,
+.friends-pagination a,
+.friends-pagination button,
+.friends-pagination a *,
+.friends-pagination button *,
+#friends-pagination a,
+#friends-pagination button,
+#friends-pagination a *,
+#friends-pagination button *,
+.page-numbers,
+.page-number,
+.page-btn,
+.prev-page,
+.next-page,
+.pagination-prev,
+.pagination-next {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Link_Select.cur") 6 2, pointer !important;
+}
+
+/* 3. 图片：悬停时显示手形，适用于图片预览 */
+.post-inner img,
+.diary-images img,
+.gallery img,
+.image-gallery img,
+.photo-gallery img,
+.lightbox-trigger img,
+.preview-image,
+.clickable-image {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Link_Select.cur") 6 2, pointer !important;
+}
+
+/* 图片外层容器也支持点击预览 */
+.image-preview,
+.image-preview *,
+.lightbox-trigger,
+.lightbox-trigger *,
+.gallery-item,
+.gallery-item *,
+.photo-item,
+.photo-item *,
+[data-lightbox],
+[data-lightbox] *,
+[data-preview-image],
+[data-preview-image] * {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Link_Select.cur") 6 2, pointer !important;
+}
+
+/* 4. 所有交互按钮的内部图标和文字 */
+button,
+button *,
+a,
+a *,
+[role="button"],
+[role="button"] *,
+[role="tab"],
+[role="tab"] *,
+[onclick],
+[onclick] * {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Link_Select.cur") 6 2, pointer !important;
+}
+
+/* 5. 保留文本输入框的文字光标 */
+input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="range"]),
+textarea,
+[contenteditable="true"] {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Text_Select.cur") 12 12, text !important;
+}
+
+/* 6. 禁用按钮仍显示禁止指针 */
+button:disabled,
+input:disabled,
+[aria-disabled="true"] {
+  cursor: url("./Frutiger%20Aero%20Cursor%20Pack/FrutigerAero_Unavailable.cur") 3 2, not-allowed !important;
+}
